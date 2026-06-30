@@ -976,7 +976,7 @@
 
   /* ── qty drum picker ── */
   (function() {
-    var ITEM_H = 52, VISIBLE = 5, MAX = 99;
+    var ITEM_H = 52, VISIBLE = 5, CHUNK = 10, MAX = 30;
     var pickerProductId = null, pickerProductName = '';
     var currentY = 0, dragStartY = 0, dragStartCurrentY = 0, dragging = false, velY = 0, lastTY = 0, lastT = 0;
 
@@ -985,11 +985,31 @@
     function yForIdx(i) { return -i * ITEM_H; }
     function getSelectedQty() { return clamp(idxForY(currentY), 0, MAX - 1) + 1; }
 
+    function appendItems(from, to) {
+      var drum = document.getElementById('picker-drum');
+      for (var i = from; i <= to; i++) {
+        var el = document.createElement('div');
+        el.className = 'picker-item';
+        el.textContent = i;
+        drum.appendChild(el);
+      }
+    }
+
+    function maybeLoadMore() {
+      var idx = idxForY(currentY);
+      if (idx >= MAX - 5) {
+        var prev = MAX;
+        MAX += CHUNK;
+        appendItems(prev + 1, MAX);
+      }
+    }
+
     function applyY(y, animate) {
       currentY = clamp(y, yForIdx(MAX - 1), 0);
       var drum = document.getElementById('picker-drum');
       drum.style.transition = animate ? 'transform .32s cubic-bezier(.22,.61,.36,1)' : 'none';
       drum.style.transform = 'translateY(' + (currentY + 2 * ITEM_H) + 'px)';
+      maybeLoadMore();
     }
 
     function snap(animate) {
@@ -999,15 +1019,11 @@
     window.openQtyPicker = function(id, name, currentQty) {
       pickerProductId = id;
       pickerProductName = name;
+      MAX = Math.max(30, (currentQty || 1) + 10);
       document.getElementById('picker-product-name').textContent = name;
       var drum = document.getElementById('picker-drum');
       drum.innerHTML = '';
-      for (var i = 1; i <= MAX; i++) {
-        var el = document.createElement('div');
-        el.className = 'picker-item';
-        el.textContent = i;
-        drum.appendChild(el);
-      }
+      appendItems(1, MAX);
       applyY(yForIdx((currentQty || 1) - 1), false);
       document.getElementById('qty-picker-overlay').classList.add('open');
       document.body.style.overflow = 'hidden';
