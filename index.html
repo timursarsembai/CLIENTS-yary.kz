@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preload" href="assets/logo.png" as="image">
 <link rel="preload" href="assets/bags-pile.png" as="image">
-<link rel="preload" href="assets/bags-pile-2.png" as="image">
 <title>ЯРЫ — Древесный уголь оптом в Алматы</title>
 <meta name="description" content="Древесный уголь ЯРЫ оптом в Алматы. Натуральный уголь из твёрдых пород дерева. Фасовка 2, 3, 5, 9 кг. Доставка от 20 мешков — бесплатно. +7 707 197 80 09">
 <meta name="robots" content="index, follow">
@@ -384,8 +383,7 @@
     </div>
     <div class="hero-img" style="position:relative;z-index:1;display:flex;justify-content:center;">
       <div id="hero-slideshow" style="position:relative;width:100%;max-width:520px;">
-        <img id="hero-img-a" src="assets/bags-pile.png" alt="Паллета мешков угля ЯРЫ оптом" style="width:100%;height:auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));transition:opacity 900ms ease;opacity:1;display:block;">
-        <img id="hero-img-b" src="assets/bags-pile-2.png" alt="Уголь ЯРЫ для мангала и барбекю" style="width:100%;height:auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));transition:opacity 900ms ease;opacity:0;display:block;position:absolute;top:0;left:0;">
+        <img src="assets/bags-pile.png" alt="Паллета мешков угля ЯРЫ оптом" style="width:100%;height:auto;filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));display:block;">
       </div>
     </div>
   </div>
@@ -899,16 +897,6 @@
     return 'мешков';
   }
 
-  /* ── hero slideshow ── */
-  (function() {
-    const imgs = [document.getElementById('hero-img-a'), document.getElementById('hero-img-b')];
-    let current = 0;
-    setInterval(function() {
-      imgs[current].style.opacity = '0';
-      current = (current + 1) % imgs.length;
-      imgs[current].style.opacity = '1';
-    }, 5000);
-  })();
 
   /* ── init ── */
   loadCart();
