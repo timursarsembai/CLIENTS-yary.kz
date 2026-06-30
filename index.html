@@ -314,17 +314,21 @@
       <img src="assets/logo.png" alt="ЯРЫ" style="height:30px;width:auto;">
     </a>
     <nav class="nav-links" style="display:flex;gap:30px;margin-left:14px;font-size:14px;font-weight:600;color:#C9BFB0;">
-      <a href="#products">Каталог</a>
-      <a href="#advantages">Преимущества</a>
-      <a href="#process">Производство</a>
-      <a href="#delivery">Доставка</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#products" data-i18n="nav_catalog">Каталог</a>
+      <a href="#advantages" data-i18n="nav_advantages">Преимущества</a>
+      <a href="#process" data-i18n="nav_process">Производство</a>
+      <a href="#delivery" data-i18n="nav_delivery">Доставка</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
     </nav>
     <div style="margin-left:auto;display:flex;align-items:center;gap:18px;flex-shrink:0;">
       <a class="header-phone" href="tel:+77071978009" style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:.01em;white-space:nowrap;">+7 707 197 80 09</a>
+      <div class="lang-toggle" style="display:flex;background:#211D1A;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:3px;flex-shrink:0;">
+        <button class="lang-btn" data-lang="ru" style="background:none;border:none;color:#F2EBDD;font-weight:700;font-size:12px;padding:6px 11px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;">RU</button>
+        <button class="lang-btn" data-lang="kk" style="background:none;border:none;color:#F2EBDD;font-weight:700;font-size:12px;padding:6px 11px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;">ҚАЗ</button>
+      </div>
       <button id="cart-open-btn" class="cart-btn" style="position:relative;display:flex;align-items:center;gap:8px;background:#211D1A;border:1px solid rgba(255,255,255,.1);color:#F2EBDD;font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;cursor:pointer;transition:border-color .2s;">
-        Корзина
+        <span data-i18n="cart_btn">Корзина</span>
         <span id="cart-badge" style="display:none;position:absolute;top:-7px;right:-7px;background:#DA2D1A;color:#fff;min-width:20px;height:20px;border-radius:999px;align-items:center;justify-content:center;font-size:11px;font-weight:700;padding:0 5px;"></span>
       </button>
       <button class="mob-menu-btn" id="mob-menu-open" aria-label="Меню">
@@ -339,12 +343,16 @@
   <div id="mob-nav-backdrop"></div>
   <div id="mob-nav-panel">
     <button id="mob-nav-close">×</button>
-    <a href="#products" onclick="closeMobNav()">Каталог</a>
-    <a href="#advantages" onclick="closeMobNav()">Преимущества</a>
-    <a href="#process" onclick="closeMobNav()">Производство</a>
-    <a href="#delivery" onclick="closeMobNav()">Доставка</a>
-    <a href="#faq" onclick="closeMobNav()">FAQ</a>
-    <a href="#contacts" onclick="closeMobNav()">Контакты</a>
+    <div class="lang-toggle" style="display:flex;background:#221D18;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:3px;margin-bottom:14px;width:fit-content;">
+      <button class="lang-btn" data-lang="ru" style="background:none;border:none;color:#F2EBDD;font-weight:700;font-size:12px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;">RU</button>
+      <button class="lang-btn" data-lang="kk" style="background:none;border:none;color:#F2EBDD;font-weight:700;font-size:12px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;">ҚАЗ</button>
+    </div>
+    <a href="#products" onclick="closeMobNav()" data-i18n="nav_catalog">Каталог</a>
+    <a href="#advantages" onclick="closeMobNav()" data-i18n="nav_advantages">Преимущества</a>
+    <a href="#process" onclick="closeMobNav()" data-i18n="nav_process">Производство</a>
+    <a href="#delivery" onclick="closeMobNav()" data-i18n="nav_delivery">Доставка</a>
+    <a href="#faq" onclick="closeMobNav()" data-i18n="nav_faq">FAQ</a>
+    <a href="#contacts" onclick="closeMobNav()" data-i18n="nav_contacts">Контакты</a>
     <a href="tel:+77071978009" style="color:#DA2D1A;margin-top:12px;font-size:19px;">+7 707 197 80 09</a>
   </div>
 </div>
@@ -361,24 +369,24 @@
   <div class="hero-grid" style="display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;">
     <div style="position:relative;z-index:1;">
       <div style="display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:26px;">
-        <span style="width:26px;height:1px;background:#C29B5B;"></span>Собственное производство · Алматы
+        <span style="width:26px;height:1px;background:#C29B5B;"></span><span data-i18n="hero_eyebrow">Собственное производство · Алматы</span>
       </div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:76px;line-height:.98;letter-spacing:-.01em;margin:0 0 24px;">
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:76px;line-height:.98;letter-spacing:-.01em;margin:0 0 24px;" data-i18n-html="hero_h1">
         Древесный уголь<br><span style="color:#DA2D1A;">премиального</span> качества<br><span style="font-size:76px;color:#C29B5B;font-style:italic;">оптом</span>
       </h1>
-      <p style="font-size:18px;line-height:1.6;color:#BFB4A4;max-width:480px;margin:0 0 34px;">
+      <p style="font-size:18px;line-height:1.6;color:#BFB4A4;max-width:480px;margin:0 0 34px;" data-i18n="hero_p">
         Натуральный уголь из твёрдых пород древесины. Стабильный жар, высокая теплоотдача и минимум золы — для ресторанов, шашлычных и домашнего барбекю.
       </p>
       <div class="hero-btns" style="display:flex;gap:14px;flex-wrap:wrap;">
-        <a href="#products" class="hero-cta" style="background:#DA2D1A;color:#fff;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:background .2s;">Перейти в каталог</a>
-        <a href="https://wa.me/77071978009" target="_blank" class="hero-wa" style="border:1px solid rgba(255,255,255,.18);color:#F2EBDD;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:border-color .2s,color .2s;">Написать в WhatsApp</a>
+        <a href="#products" class="hero-cta" style="background:#DA2D1A;color:#fff;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:background .2s;" data-i18n="hero_btn_catalog">Перейти в каталог</a>
+        <a href="https://wa.me/77071978009" target="_blank" class="hero-wa" style="border:1px solid rgba(255,255,255,.18);color:#F2EBDD;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:border-color .2s,color .2s;" data-i18n="hero_btn_wa">Написать в WhatsApp</a>
       </div>
       <div class="stats-row" style="display:flex;gap:38px;margin-top:48px;flex-wrap:wrap;align-items:center;">
-        <div><div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#C29B5B;line-height:1;">100%</div><div style="font-size:13px;color:#9A8F7F;margin-top:5px;">натуральный</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#C29B5B;line-height:1;">100%</div><div style="font-size:13px;color:#9A8F7F;margin-top:5px;" data-i18n="hero_stat1">натуральный</div></div>
         <div style="width:1px;height:40px;background:rgba(255,255,255,.1);"></div>
-        <div><div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#C29B5B;line-height:1;">0</div><div style="font-size:13px;color:#9A8F7F;margin-top:5px;">хим. добавок</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#C29B5B;line-height:1;">0</div><div style="font-size:13px;color:#9A8F7F;margin-top:5px;" data-i18n="hero_stat2">хим. добавок</div></div>
         <div style="width:1px;height:40px;background:rgba(255,255,255,.1);"></div>
-        <div><div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#C29B5B;line-height:1;">24ч</div><div style="font-size:13px;color:#9A8F7F;margin-top:5px;">доставка</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:#C29B5B;line-height:1;">24ч</div><div style="font-size:13px;color:#9A8F7F;margin-top:5px;" data-i18n="hero_stat3">доставка</div></div>
       </div>
     </div>
     <div class="hero-img" style="position:relative;z-index:1;display:flex;justify-content:center;">
@@ -392,10 +400,10 @@
 <!-- advantages strip -->
 <div style="border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);background:#100D0C;">
   <div class="strip-inner" style="max-width:1240px;margin:0 auto;padding:26px 28px;display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between;font-size:14px;font-weight:600;color:#C9BFB0;">
-    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span>Твёрдые породы древесины</span>
-    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span>Долго сохраняет жар</span>
-    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span>Не стреляет при горении</span>
-    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span>Минимум золы</span>
+    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span><span data-i18n="strip1">Твёрдые породы древесины</span></span>
+    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span><span data-i18n="strip2">Долго сохраняет жар</span></span>
+    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span><span data-i18n="strip3">Не стреляет при горении</span></span>
+    <span style="display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;background:#DA2D1A;transform:rotate(45deg);display:inline-block;"></span><span data-i18n="strip4">Минимум золы</span></span>
   </div>
 </div>
 
@@ -404,11 +412,11 @@
 <div style="max-width:1240px;margin:0 auto;padding:104px 28px;">
   <div class="products-header" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:52px;flex-wrap:wrap;">
     <div>
-      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;">Каталог продукции</div>
-      <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1;margin:0 0 12px;">Выберите фасовку</h2>
-      <p style="font-size:14px;color:#9A8F7F;margin:0;">Минимальный оптовый заказ — от <strong style="color:#1B1714;">20 мешков</strong></p>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;" data-i18n="products_eyebrow">Каталог продукции</div>
+      <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1;margin:0 0 12px;" data-i18n="products_h2">Выберите фасовку</h2>
+      <p style="font-size:14px;color:#9A8F7F;margin:0;" data-i18n-html="products_min">Минимальный оптовый заказ — от <strong style="color:#1B1714;">20 мешков</strong></p>
     </div>
-    <p style="font-size:15px;color:#9A8F7F;max-width:340px;margin:0;line-height:1.6;">Фирменные крафтовые мешки. Цена указана за упаковку. <span style="display:inline-flex;align-items:center;gap:6px;background:#3e3e3e;color:#fff;font-weight:700;font-size:13px;padding:5px 12px;border-radius:999px;letter-spacing:.02em;">Доставка от 20 мешков — бесплатно</span></p>
+    <p style="font-size:15px;color:#9A8F7F;max-width:340px;margin:0;line-height:1.6;" data-i18n-html="products_note">Фирменные крафтовые мешки. Цена указана за упаковку. <span style="display:inline-flex;align-items:center;gap:6px;background:#3e3e3e;color:#fff;font-weight:700;font-size:13px;padding:5px 12px;border-radius:999px;letter-spacing:.02em;">Доставка от 20 мешков — бесплатно</span></p>
   </div>
   <div class="prod-grid" id="products-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;">
     <!-- cards rendered by JS -->
@@ -422,15 +430,15 @@
     <!-- левая колонка: текст + сетка -->
     <div style="display:flex;flex-direction:column;gap:40px;">
       <div>
-        <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;">Почему ЯРЫ</div>
-        <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.02;margin:0 0 22px;">Качество, проверенное жаром</h2>
-        <p style="font-size:16px;line-height:1.65;color:#A89D8D;margin:0;">Мы контролируем каждый этап — от выбора древесины до фасовки в фирменные мешки. Никаких посредников, только стабильный результат.</p>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;" data-i18n="adv_eyebrow">Почему ЯРЫ</div>
+        <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.02;margin:0 0 22px;" data-i18n="adv_h2">Качество, проверенное жаром</h2>
+        <p style="font-size:16px;line-height:1.65;color:#A89D8D;margin:0;" data-i18n="adv_p">Мы контролируем каждый этап — от выбора древесины до фасовки в фирменные мешки. Никаких посредников, только стабильный результат.</p>
       </div>
       <div class="adv-cards" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
-        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">01</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;">Собственное производство</div><div style="font-size:13px;color:#948A7A;line-height:1.5;">Полный цикл изготовления под нашим контролем.</div></div>
-        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">02</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;">Без химических добавок</div><div style="font-size:13px;color:#948A7A;line-height:1.5;">Только натуральная древесина, ничего лишнего.</div></div>
-        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">03</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;">Высокая теплоотдача</div><div style="font-size:13px;color:#948A7A;line-height:1.5;">Долго сохраняет жар и не стреляет при горении.</div></div>
-        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">04</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;">Крупная фракция</div><div style="font-size:13px;color:#948A7A;line-height:1.5;">Крупный и средний кусок, минимальное количество золы.</div></div>
+        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">01</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;" data-i18n="adv1_t">Собственное производство</div><div style="font-size:13px;color:#948A7A;line-height:1.5;" data-i18n="adv1_d">Полный цикл изготовления под нашим контролем.</div></div>
+        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">02</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;" data-i18n="adv2_t">Без химических добавок</div><div style="font-size:13px;color:#948A7A;line-height:1.5;" data-i18n="adv2_d">Только натуральная древесина, ничего лишнего.</div></div>
+        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">03</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;" data-i18n="adv3_t">Высокая теплоотдача</div><div style="font-size:13px;color:#948A7A;line-height:1.5;" data-i18n="adv3_d">Долго сохраняет жар и не стреляет при горении.</div></div>
+        <div style="background:#141110;padding:26px;"><div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:#C29B5B;">04</div><div style="font-weight:700;font-size:16px;margin:8px 0 6px;" data-i18n="adv4_t">Крупная фракция</div><div style="font-size:13px;color:#948A7A;line-height:1.5;" data-i18n="adv4_d">Крупный и средний кусок, минимальное количество золы.</div></div>
       </div>
     </div>
     <!-- правая колонка: фото -->
@@ -448,12 +456,12 @@
       <img src="assets/kiln.png" alt="Мешки угля ЯРЫ оптом" loading="lazy" style="width:100%;max-width:540px;filter:drop-shadow(0 36px 50px rgba(0,0,0,.5));">
     </div>
     <div>
-      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;">Производство</div>
-      <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.02;margin:0 0 24px;">От древесины до мешка</h2>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;" data-i18n="proc_eyebrow">Производство</div>
+      <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.02;margin:0 0 24px;" data-i18n="proc_h2">От древесины до мешка</h2>
       <div style="display:flex;flex-direction:column;gap:22px;">
-        <div style="display:flex;gap:18px;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#DA2D1A;min-width:40px;">1</div><div><div style="font-weight:700;font-size:17px;margin-bottom:4px;">Углежжение</div><div style="font-size:14px;color:#A89D8D;line-height:1.55;">Твёрдые породы древесины проходят полный цикл обугливания в наших печах.</div></div></div>
-        <div style="display:flex;gap:18px;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#DA2D1A;min-width:40px;">2</div><div><div style="font-weight:700;font-size:17px;margin-bottom:4px;">Фасовка</div><div style="font-size:14px;color:#A89D8D;line-height:1.55;">Готовый уголь сортируется и упаковывается в фирменные крафтовые мешки.</div></div></div>
-        <div style="display:flex;gap:18px;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#DA2D1A;min-width:40px;">3</div><div><div style="font-weight:700;font-size:17px;margin-bottom:4px;">Доставка</div><div style="font-size:14px;color:#A89D8D;line-height:1.55;">Отгрузка напрямую, без посредников — по Алматы и области.</div></div></div>
+        <div style="display:flex;gap:18px;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#DA2D1A;min-width:40px;">1</div><div><div style="font-weight:700;font-size:17px;margin-bottom:4px;" data-i18n="proc1_t">Углежжение</div><div style="font-size:14px;color:#A89D8D;line-height:1.55;" data-i18n="proc1_d">Твёрдые породы древесины проходят полный цикл обугливания в наших печах.</div></div></div>
+        <div style="display:flex;gap:18px;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#DA2D1A;min-width:40px;">2</div><div><div style="font-weight:700;font-size:17px;margin-bottom:4px;" data-i18n="proc2_t">Фасовка</div><div style="font-size:14px;color:#A89D8D;line-height:1.55;" data-i18n="proc2_d">Готовый уголь сортируется и упаковывается в фирменные крафтовые мешки.</div></div></div>
+        <div style="display:flex;gap:18px;"><div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#DA2D1A;min-width:40px;">3</div><div><div style="font-weight:700;font-size:17px;margin-bottom:4px;" data-i18n="proc3_t">Доставка</div><div style="font-size:14px;color:#A89D8D;line-height:1.55;" data-i18n="proc3_d">Отгрузка напрямую, без посредников — по Алматы и области.</div></div></div>
       </div>
     </div>
   </div>
@@ -465,13 +473,13 @@
   <div style="max-width:1240px;margin:0 auto;padding:104px 28px;">
     <div class="del-grid reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
       <div>
-        <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;">Условия заказа</div>
-        <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.02;margin:0 0 30px;">Доставка и самовывоз</h2>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C29B5B;margin-bottom:16px;" data-i18n="del_eyebrow">Условия заказа</div>
+        <h2 class="big" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:54px;line-height:1.02;margin:0 0 30px;" data-i18n="del_h2">Доставка и самовывоз</h2>
         <div class="del-stats" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;">20</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;">мешков — минимальный заказ для доставки</div></div>
-          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;">0&nbsp;₸</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;">стоимость доставки по региону</div></div>
-          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;">+1 день</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;">срок — на следующий день после заказа</div></div>
-          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;">Да</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;">самовывоз с производства в с. Байтерек</div></div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;">20</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;" data-i18n="del_stat1">мешков — минимальный заказ для доставки</div></div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;">0&nbsp;₸</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;" data-i18n="del_stat2">стоимость доставки по региону</div></div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;" data-i18n="del_stat3_num">+1 день</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;" data-i18n="del_stat3">срок — на следующий день после заказа</div></div>
+          <div style="border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;"><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#C29B5B;" data-i18n="del_stat4_num">Да</div><div style="font-size:13px;color:#A89D8D;margin-top:4px;" data-i18n="del_stat4">самовывоз с производства в с. Байтерек</div></div>
         </div>
       </div>
       <div class="del-img" style="display:flex;justify-content:center;">
@@ -481,12 +489,12 @@
     <!-- clients -->
     <div class="client-grid reveal" style="margin-top:88px;display:grid;grid-template-columns:1fr 1fr;gap:22px;">
       <div style="border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:34px;">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DA2D1A;margin-bottom:16px;">Для бизнеса · B2B</div>
-        <p style="font-size:15px;line-height:1.75;color:#C2B7A7;margin:0;">Рестораны · шашлычные · донерные · кафе · магазины · супермаркеты · рынки · АЗС · торговые точки</p>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DA2D1A;margin-bottom:16px;" data-i18n="b2b_t">Для бизнеса · B2B</div>
+        <p style="font-size:15px;line-height:1.75;color:#C2B7A7;margin:0;" data-i18n="b2b_d">Рестораны · шашлычные · донерные · кафе · магазины · супермаркеты · рынки · АЗС · торговые точки</p>
       </div>
       <div style="border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:34px;">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DA2D1A;margin-bottom:16px;">Для дома · B2C</div>
-        <p style="font-size:15px;line-height:1.75;color:#C2B7A7;margin:0;">Владельцы частных домов · дачники · любители барбекю · семейный отдых на природе</p>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DA2D1A;margin-bottom:16px;" data-i18n="b2c_t">Для дома · B2C</div>
+        <p style="font-size:15px;line-height:1.75;color:#C2B7A7;margin:0;" data-i18n="b2c_d">Владельцы частных домов · дачники · любители барбекю · семейный отдых на природе</p>
       </div>
     </div>
   </div>
@@ -496,41 +504,14 @@
 <section id="faq" style="background:#fff;">
 <div style="max-width:1240px;margin:0 auto;padding:104px 28px;">
   <div style="max-width:720px;margin:0 auto;" class="reveal">
-    <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#DA2D1A;margin:0 0 14px;">FAQ</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:48px;line-height:1.05;color:#1B1714;margin:0 0 52px;">Частые вопросы</h2>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#DA2D1A;margin:0 0 14px;" data-i18n="faq_eyebrow">FAQ</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:48px;line-height:1.05;color:#1B1714;margin:0 0 52px;" data-i18n="faq_h2">Частые вопросы</h2>
     <div id="faq-list" style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.1);"></div>
   </div>
 </div>
 </section>
 
 <script>
-(function(){
-  const faqs = [
-    { q: 'Какой минимальный объём заказа?', a: 'Минимальный оптовый заказ — 20 мешков любых фасовок. Это условие действует при оформлении через сайт или WhatsApp. При самовывозе минимум не установлен.' },
-    { q: 'Как быстро привезут уголь?', a: 'Доставку по Алматы осуществляем на следующий рабочий день после подтверждения заказа. При больших объёмах (от 100 мешков) срок может составить 1–2 дня — уточняйте при оформлении.' },
-    { q: 'Доставка платная?', a: 'Доставка бесплатна при заказе от 20 мешков. При заказе меньшего объёма при самовывозе стоимость доставки рассчитывается индивидуально.' },
-    { q: 'Откуда уголь, из какого дерева?', a: 'Уголь производится из твёрдых пород дерева (береза, саксаул) методом высокотемпературного обжига. Производство находится в Алматинской области, с. Байтерек.' },
-    { q: 'Можно ли забрать самовывозом?', a: 'Да. Самовывоз доступен ежедневно с 08:00 до 19:00 по адресу: Алматинская обл., Енбекшиказахский р-н, с. Байтерек, ул. Строителей, 28.' },
-    { q: 'Как оформить заказ?', a: 'Добавьте нужные позиции в корзину на сайте — при достижении 20 мешков появится кнопка "Оформить заказ в WhatsApp". Также можно позвонить или написать напрямую: +7 707 197 80 09.' },
-  ];
-
-  const list = document.getElementById('faq-list');
-  faqs.forEach(function(item, i) {
-    const el = document.createElement('div');
-    el.style.cssText = 'border-bottom:1px solid rgba(0,0,0,.1);';
-    el.innerHTML = `
-      <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;text-align:left;">
-        <span style="font-size:17px;font-weight:600;color:#1B1714;line-height:1.4;">${item.q}</span>
-        <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#f2ede6;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s;">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 5l5 5 5-5" stroke="#1B1714" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </button>
-      <div class="faq-body" style="max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;">
-        <p style="font-size:15px;line-height:1.7;color:#5A5047;margin:0;padding-bottom:22px;">${item.a}</p>
-      </div>`;
-    list.appendChild(el);
-  });
-
   window.toggleFaq = function(btn) {
     const body = btn.nextElementSibling;
     const icon = btn.querySelector('.faq-icon');
@@ -544,29 +525,28 @@
       icon.querySelector('path').setAttribute('stroke', '#fff');
     }
   };
-})();
 </script>
 
 <!-- contacts / CTA -->
 <section id="contacts" style="background:#141110;">
 <div class="contacts-grid reveal" style="max-width:1240px;margin:0 auto;padding:104px 28px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
   <div>
-    <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#DA2D1A;margin:0 0 14px;">Контакты</p>
-    <h2 class="cta-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0 0 20px;color:#F2EBDD;">Закажите уголь ЯРЫ сегодня</h2>
-    <p style="font-size:16px;line-height:1.7;color:#8A7E6E;margin:0 0 40px;max-width:400px;">Оставьте заявку по телефону или в WhatsApp — доставим на следующий день.</p>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#DA2D1A;margin:0 0 14px;" data-i18n="contacts_eyebrow">Контакты</p>
+    <h2 class="cta-h2" style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;line-height:1.05;margin:0 0 20px;color:#F2EBDD;" data-i18n="contacts_h2">Закажите уголь ЯРЫ сегодня</h2>
+    <p style="font-size:16px;line-height:1.7;color:#8A7E6E;margin:0 0 40px;max-width:400px;" data-i18n="contacts_p">Оставьте заявку по телефону или в WhatsApp — доставим на следующий день.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;">
       <a href="tel:+77071978009" style="background:#DA2D1A;color:#fff;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;text-decoration:none;">+7 707 197 80 09</a>
       <a href="https://wa.me/77071978009" target="_blank" style="background:transparent;color:#F2EBDD;font-weight:600;font-size:15px;padding:16px 30px;border-radius:999px;border:1px solid rgba(242,235,221,.2);text-decoration:none;">WhatsApp</a>
-      <button onclick="openCallback()" style="background:transparent;color:#F2EBDD;font-weight:600;font-size:15px;padding:16px 30px;border-radius:999px;border:1px solid rgba(242,235,221,.2);cursor:pointer;font-family:'Manrope',sans-serif;">Перезвонить</button>
+      <button onclick="openCallback()" style="background:transparent;color:#F2EBDD;font-weight:600;font-size:15px;padding:16px 30px;border-radius:999px;border:1px solid rgba(242,235,221,.2);cursor:pointer;font-family:'Manrope',sans-serif;" data-i18n="contacts_callback_btn">Перезвонить</button>
     </div>
     <div class="contacts-info" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;border-top:1px solid rgba(255,255,255,.08);padding-top:36px;">
       <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5A5047;margin-bottom:8px;">Самовывоз</div>
-        <div style="font-size:14px;line-height:1.55;color:#BFB4A4;">Алматинская обл., Енбекшиказахский р-н,<br>с. Байтерек, ул. Строителей, 28</div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5A5047;margin-bottom:8px;" data-i18n="contacts_pickup_label">Самовывоз</div>
+        <div style="font-size:14px;line-height:1.55;color:#BFB4A4;" data-i18n-html="contacts_address">Алматинская обл., Енбекшиказахский р-н,<br>с. Байтерек, ул. Строителей, 28</div>
       </div>
       <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5A5047;margin-bottom:8px;">Режим работы</div>
-        <div style="font-size:14px;color:#BFB4A4;">Ежедневно<br>08:00 — 19:00</div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5A5047;margin-bottom:8px;" data-i18n="contacts_hours_label">Режим работы</div>
+        <div style="font-size:14px;color:#BFB4A4;" data-i18n-html="contacts_hours">Ежедневно<br>08:00 — 19:00</div>
       </div>
     </div>
   </div>
@@ -581,29 +561,29 @@
   <div class="footer-inner" style="max-width:1240px;margin:0 auto;padding:48px 28px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
     <div style="display:flex;align-items:center;gap:16px;">
       <img src="assets/logo.png" alt="ЯРЫ" style="height:26px;">
-      <span style="font-size:13px;color:#8A7E6E;">Древесный уголь · собственное производство</span>
+      <span style="font-size:13px;color:#8A7E6E;" data-i18n="footer_tag">Древесный уголь · собственное производство</span>
     </div>
-    <div style="font-size:13px;color:#8A7E6E;">© 2026 ЯРЫ. Честность · качество · натуральность</div>
-    <div style="font-size:12px;color:#5A5047;">Разработано <a href="https://sarsembai.dev" target="_blank" style="color:#8A7E6E;text-decoration:underline;text-underline-offset:3px;transition:color .2s;" onmouseover="this.style.color='#F2EBDD'" onmouseout="this.style.color='#8A7E6E'">sarsembai.dev</a></div>
+    <div style="font-size:13px;color:#8A7E6E;" data-i18n="footer_copy">© 2026 ЯРЫ. Честность · качество · натуральность</div>
+    <div style="font-size:12px;color:#5A5047;"><span data-i18n="footer_dev">Разработано</span> <a href="https://sarsembai.dev" target="_blank" style="color:#8A7E6E;text-decoration:underline;text-underline-offset:3px;transition:color .2s;" onmouseover="this.style.color='#F2EBDD'" onmouseout="this.style.color='#8A7E6E'">sarsembai.dev</a></div>
   </div>
 </footer>
 
 <!-- scroll to top -->
-<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх" style="display:none;position:fixed;right:26px;bottom:96px;z-index:44;background:#211D1A;color:#F2EBDD;border:1px solid rgba(255,255,255,.15);border-radius:999px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;transition:opacity .25s,transform .2s;box-shadow:0 4px 16px rgba(0,0,0,.4);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх" data-i18n-title="scroll_top_title" style="display:none;position:fixed;right:26px;bottom:96px;z-index:44;background:#211D1A;color:#F2EBDD;border:1px solid rgba(255,255,255,.15);border-radius:999px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;transition:opacity .25s,transform .2s;box-shadow:0 4px 16px rgba(0,0,0,.4);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
 <!-- qty drum picker -->
 <div id="qty-picker-overlay" onclick="if(event.target===this)closeQtyPicker()">
   <div id="qty-picker-sheet">
-    <div class="picker-title">Количество: <strong id="picker-product-name"></strong></div>
+    <div class="picker-title"><span data-i18n="qty_label">Количество:</span> <strong id="picker-product-name"></strong></div>
     <div class="picker-viewport" id="picker-viewport">
       <div class="picker-highlight"></div>
       <div class="picker-fade-top"></div>
       <div class="picker-fade-bot"></div>
       <div id="picker-drum"></div>
     </div>
-    <button class="picker-confirm" onclick="confirmQtyPicker()">Выбрать</button>
+    <button class="picker-confirm" onclick="confirmQtyPicker()" data-i18n="qty_confirm">Выбрать</button>
   </div>
 </div>
 
@@ -611,30 +591,30 @@
 <div id="callback-overlay" class="callback-overlay" onclick="if(event.target===this)closeCallback()">
   <div class="callback-modal">
     <button onclick="closeCallback()" style="position:absolute;top:18px;right:20px;background:none;border:none;cursor:pointer;color:#8A7E6E;font-size:22px;line-height:1;padding:4px;">×</button>
-    <p style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DA2D1A;margin:0 0 12px;">Обратный звонок</p>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#F2EBDD;margin:0 0 24px;line-height:1.2;">Перезвоним в течение 15 минут</h3>
+    <p style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DA2D1A;margin:0 0 12px;" data-i18n="callback_eyebrow">Обратный звонок</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#F2EBDD;margin:0 0 24px;line-height:1.2;" data-i18n="callback_h3">Перезвоним в течение 15 минут</h3>
     <input id="callback-phone" type="tel" placeholder="+7 (___) ___-__-__" style="margin-bottom:14px;" oninput="formatCallbackPhone(this)">
-    <button onclick="submitCallback()" style="width:100%;background:#DA2D1A;color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:15px 20px;border-radius:999px;border:none;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='#c02518'" onmouseout="this.style.background='#DA2D1A'">Позвонить мне</button>
-    <p style="font-size:12px;color:#5A5047;text-align:center;margin:14px 0 0;">Нажимая кнопку, вы соглашаетесь на обработку данных</p>
+    <button onclick="submitCallback()" style="width:100%;background:#DA2D1A;color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:15px 20px;border-radius:999px;border:none;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='#c02518'" onmouseout="this.style.background='#DA2D1A'" data-i18n="callback_btn">Позвонить мне</button>
+    <p style="font-size:12px;color:#5A5047;text-align:center;margin:14px 0 0;" data-i18n="callback_footnote">Нажимая кнопку, вы соглашаетесь на обработку данных</p>
   </div>
 </div>
 
 <!-- sticky mobile CTA -->
 <div id="mob-cta">
-  <a href="tel:+77071978009" style="flex:1;background:#DA2D1A;color:#fff;font-weight:700;font-size:14px;padding:13px 10px;border-radius:12px;text-decoration:none;text-align:center;">Позвонить</a>
+  <a href="tel:+77071978009" style="flex:1;background:#DA2D1A;color:#fff;font-weight:700;font-size:14px;padding:13px 10px;border-radius:12px;text-decoration:none;text-align:center;" data-i18n="mobcta_call">Позвонить</a>
   <a href="https://wa.me/77071978009" target="_blank" style="flex:1;background:#25D366;color:#fff;font-weight:700;font-size:14px;padding:13px 10px;border-radius:12px;text-decoration:none;text-align:center;">WhatsApp</a>
-  <button onclick="openCallback()" style="flex:1;background:rgba(255,255,255,.08);color:#F2EBDD;font-weight:600;font-size:13px;padding:13px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);cursor:pointer;font-family:'Manrope',sans-serif;">Перезвонить</button>
+  <button onclick="openCallback()" style="flex:1;background:rgba(255,255,255,.08);color:#F2EBDD;font-weight:600;font-size:13px;padding:13px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.12);cursor:pointer;font-family:'Manrope',sans-serif;" data-i18n="mobcta_callback">Перезвонить</button>
 </div>
 
 </div><!-- /.page-wrap -->
 
 <!-- floating cart -->
 <!-- floating whatsapp -->
-<a class="wa-float" href="https://wa.me/77071978009" target="_blank" style="position:fixed;left:26px;bottom:26px;z-index:45;background:#25D366;color:#fff;border-radius:999px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.45);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 12px 36px rgba(37,211,102,.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(37,211,102,.45)'" title="Написать в WhatsApp">
+<a class="wa-float" href="https://wa.me/77071978009" target="_blank" style="position:fixed;left:26px;bottom:26px;z-index:45;background:#25D366;color:#fff;border-radius:999px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,211,102,.45);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 12px 36px rgba(37,211,102,.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(37,211,102,.45)'" title="Написать в WhatsApp" data-i18n-title="wa_float_title">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<button id="float-cart" style="display:none;position:fixed;right:26px;bottom:26px;z-index:45;background:#DA2D1A;color:#fff;border:none;border-radius:999px;width:56px;height:56px;cursor:pointer;box-shadow:0 8px 28px rgba(218,45,26,.45);align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 12px 36px rgba(218,45,26,.6)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(218,45,26,.45)'" title="Корзина">
+<button id="float-cart" style="display:none;position:fixed;right:26px;bottom:26px;z-index:45;background:#DA2D1A;color:#fff;border:none;border-radius:999px;width:56px;height:56px;cursor:pointer;box-shadow:0 8px 28px rgba(218,45,26,.45);align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 12px 36px rgba(218,45,26,.6)'" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(218,45,26,.45)'" title="Корзина" data-i18n-title="cart_btn">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
   <span id="float-cart-badge" style="display:none;position:absolute;top:-6px;right:-6px;background:#fff;color:#DA2D1A;min-width:20px;height:20px;border-radius:999px;align-items:center;justify-content:center;font-size:11px;font-weight:700;padding:0 5px;border:2px solid #DA2D1A;"></span>
 </button>
@@ -644,31 +624,193 @@
   <div id="drawer-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,.6);"></div>
   <aside style="position:absolute;top:0;right:0;height:100%;width:420px;max-width:92vw;background:#17130F;border-left:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;animation:slideIn .26s cubic-bezier(.22,.61,.36,1);">
     <div style="padding:24px 26px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;">Корзина</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;" data-i18n="cart_btn">Корзина</div>
       <button id="cart-close-btn" style="background:none;border:none;color:#BFB4A4;font-size:26px;cursor:pointer;line-height:1;">×</button>
     </div>
     <div id="cart-items-list" style="flex:1;overflow-y:auto;padding:12px 26px;"></div>
     <div style="padding:22px 26px;border-top:1px solid rgba(255,255,255,.08);">
       <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
-        <span style="font-size:14px;color:#A89D8D;">Итого</span>
+        <span style="font-size:14px;color:#A89D8D;" data-i18n="cart_total_label">Итого</span>
         <span id="cart-total" style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;">0&nbsp;₸</span>
       </div>
       <div id="checkout-hint" style="font-size:12px;color:#8A7E6E;margin-bottom:16px;">Минимум 20 мешков для оформления заказа</div>
-      <a id="checkout-link" href="#" target="_blank" class="checkout-btn" style="display:block;text-align:center;background:#DA2D1A;color:#fff;font-weight:700;font-size:15px;padding:16px;border-radius:999px;transition:opacity .2s;">Оформить через WhatsApp</a>
+      <a id="checkout-link" href="#" target="_blank" class="checkout-btn" style="display:block;text-align:center;background:#DA2D1A;color:#fff;font-weight:700;font-size:15px;padding:16px;border-radius:999px;transition:opacity .2s;" data-i18n="checkout_btn">Оформить через WhatsApp</a>
     </div>
   </aside>
 </div>
 
 <script>
   const PRODUCTS = [
-    { id: '2', w: '2',  unit: 'кг', price: 1000, tag: 'Компактная',    desc: 'Для дома и пикника',   img: 'assets/charcoal-2kg.png' },
-    { id: '3', w: '3',  unit: 'кг', price: 1400, tag: 'Универсальная', desc: 'Семейный отдых',        img: 'assets/charcoal-3kg.png' },
-    { id: '5', w: '5',  unit: 'кг', price: 2000, tag: 'Популярная',    desc: 'Барбекю компанией',     img: 'assets/charcoal-5kg.png' },
-    { id: '9', w: '9',  unit: 'кг', price: 3500, tag: 'Для бизнеса',   desc: 'Кафе, опт, B2B',       img: 'assets/charcoal-9kg.png' },
+    { id: '2', w: '2',  unit: 'кг', price: 1000, tag: { ru: 'Компактная',    kk: 'Компактты' },      desc: { ru: 'Для дома и пикника', kk: 'Үй және пикник үшін' },     img: 'assets/charcoal-2kg.png' },
+    { id: '3', w: '3',  unit: 'кг', price: 1400, tag: { ru: 'Универсальная', kk: 'Әмбебап' },         desc: { ru: 'Семейный отдых',      kk: 'Отбасылық демалыс' },       img: 'assets/charcoal-3kg.png' },
+    { id: '5', w: '5',  unit: 'кг', price: 2000, tag: { ru: 'Популярная',    kk: 'Танымал' },          desc: { ru: 'Барбекю компанией',   kk: 'Достармен барбекю' },       img: 'assets/charcoal-5kg.png' },
+    { id: '9', w: '9',  unit: 'кг', price: 3500, tag: { ru: 'Для бизнеса',   kk: 'Бизнеске арналған' }, desc: { ru: 'Кафе, опт, B2B',      kk: 'Кафе, көтерме, B2B' },      img: 'assets/charcoal-9kg.png' },
   ];
 
+  const FAQS = [
+    { q: { ru: 'Какой минимальный объём заказа?', kk: 'Ең аз тапсырыс көлемі қандай?' }, a: { ru: 'Минимальный оптовый заказ — 20 мешков любых фасовок. Это условие действует при оформлении через сайт или WhatsApp. При самовывозе минимум не установлен.', kk: 'Ең аз көтерме тапсырыс — кез келген қаптамадан 20 қап. Бұл шарт сайт немесе WhatsApp арқылы рәсімдеуге қолданылады. Өзі алып кеткенде ең аз шек жоқ.' } },
+    { q: { ru: 'Как быстро привезут уголь?', kk: 'Көмір қанша уақытта жеткізіледі?' }, a: { ru: 'Доставку по Алматы осуществляем на следующий рабочий день после подтверждения заказа. При больших объёмах (от 100 мешков) срок может составить 1–2 дня — уточняйте при оформлении.', kk: 'Алматы бойынша жеткізуді тапсырыс расталғаннан кейінгі келесі жұмыс күні жүзеге асырамыз. Үлкен көлемде (100 қаптан бастап) мерзімі 1–2 күнге созылуы мүмкін — рәсімдеу кезінде нақтылаңыз.' } },
+    { q: { ru: 'Доставка платная?', kk: 'Жеткізу ақылы ма?' }, a: { ru: 'Доставка бесплатна при заказе от 20 мешков. При заказе меньшего объёма при самовывозе стоимость доставки рассчитывается индивидуально.', kk: '20 қаптан тапсырыс бергенде жеткізу тегін. Аз көлемде тапсырыс бергенде жеткізу құны жеке есептеледі.' } },
+    { q: { ru: 'Откуда уголь, из какого дерева?', kk: 'Көмір қайдан, қандай ағаштан жасалады?' }, a: { ru: 'Уголь производится из твёрдых пород дерева (береза, саксаул) методом высокотемпературного обжига. Производство находится в Алматинской области, с. Байтерек.', kk: 'Көмір қатты ағаш түрлерінен (қайың, сексеуіл) жоғары температурада күйдіру әдісімен жасалады. Өндіріс Алматы облысы, Байтерек ауылында орналасқан.' } },
+    { q: { ru: 'Можно ли забрать самовывозом?', kk: 'Өзі алып кетуге бола ма?' }, a: { ru: 'Да. Самовывоз доступен ежедневно с 08:00 до 19:00 по адресу: Алматинская обл., Енбекшиказахский р-н, с. Байтерек, ул. Строителей, 28.', kk: 'Иә. Өзі алып кету күн сайын 08:00-ден 19:00-ге дейін мына мекенжай бойынша қолжетімді: Алматы обл., Еңбекшіқазақ ауданы, Байтерек ауылы, Строителей көш., 28.' } },
+    { q: { ru: 'Как оформить заказ?', kk: 'Тапсырысты қалай рәсімдеуге болады?' }, a: { ru: 'Добавьте нужные позиции в корзину на сайте — при достижении 20 мешков появится кнопка "Оформить заказ в WhatsApp". Также можно позвонить или написать напрямую: +7 707 197 80 09.', kk: 'Сайтта қажетті өнімдерді себетке қосыңыз — 20 қапқа жеткенде «WhatsApp арқылы тапсырыс беру» түймесі пайда болады. Сондай-ақ тікелей қоңырау шалуға немесе жазуға болады: +7 707 197 80 09.' } },
+  ];
+
+  const I18N = {
+    ru: {
+      nav_catalog: 'Каталог', nav_advantages: 'Преимущества', nav_process: 'Производство', nav_delivery: 'Доставка', nav_faq: 'FAQ', nav_contacts: 'Контакты',
+      cart_btn: 'Корзина',
+      hero_eyebrow: 'Собственное производство · Алматы',
+      hero_h1: 'Древесный уголь<br><span style="color:#DA2D1A;">премиального</span> качества<br><span style="font-size:76px;color:#C29B5B;font-style:italic;">оптом</span>',
+      hero_p: 'Натуральный уголь из твёрдых пород древесины. Стабильный жар, высокая теплоотдача и минимум золы — для ресторанов, шашлычных и домашнего барбекю.',
+      hero_btn_catalog: 'Перейти в каталог', hero_btn_wa: 'Написать в WhatsApp',
+      hero_stat1: 'натуральный', hero_stat2: 'хим. добавок', hero_stat3: 'доставка',
+      strip1: 'Твёрдые породы древесины', strip2: 'Долго сохраняет жар', strip3: 'Не стреляет при горении', strip4: 'Минимум золы',
+      products_eyebrow: 'Каталог продукции', products_h2: 'Выберите фасовку',
+      products_min: 'Минимальный оптовый заказ — от <strong style="color:#1B1714;">20 мешков</strong>',
+      products_note: 'Фирменные крафтовые мешки. Цена указана за упаковку. <span style="display:inline-flex;align-items:center;gap:6px;background:#3e3e3e;color:#fff;font-weight:700;font-size:13px;padding:5px 12px;border-radius:999px;letter-spacing:.02em;">Доставка от 20 мешков — бесплатно</span>',
+      add_btn: 'В корзину',
+      adv_eyebrow: 'Почему ЯРЫ', adv_h2: 'Качество, проверенное жаром',
+      adv_p: 'Мы контролируем каждый этап — от выбора древесины до фасовки в фирменные мешки. Никаких посредников, только стабильный результат.',
+      adv1_t: 'Собственное производство', adv1_d: 'Полный цикл изготовления под нашим контролем.',
+      adv2_t: 'Без химических добавок', adv2_d: 'Только натуральная древесина, ничего лишнего.',
+      adv3_t: 'Высокая теплоотдача', adv3_d: 'Долго сохраняет жар и не стреляет при горении.',
+      adv4_t: 'Крупная фракция', adv4_d: 'Крупный и средний кусок, минимальное количество золы.',
+      proc_eyebrow: 'Производство', proc_h2: 'От древесины до мешка',
+      proc1_t: 'Углежжение', proc1_d: 'Твёрдые породы древесины проходят полный цикл обугливания в наших печах.',
+      proc2_t: 'Фасовка', proc2_d: 'Готовый уголь сортируется и упаковывается в фирменные крафтовые мешки.',
+      proc3_t: 'Доставка', proc3_d: 'Отгрузка напрямую, без посредников — по Алматы и области.',
+      del_eyebrow: 'Условия заказа', del_h2: 'Доставка и самовывоз',
+      del_stat1: 'мешков — минимальный заказ для доставки', del_stat2: 'стоимость доставки по региону',
+      del_stat3_num: '+1 день', del_stat3: 'срок — на следующий день после заказа',
+      del_stat4_num: 'Да', del_stat4: 'самовывоз с производства в с. Байтерек',
+      b2b_t: 'Для бизнеса · B2B', b2b_d: 'Рестораны · шашлычные · донерные · кафе · магазины · супермаркеты · рынки · АЗС · торговые точки',
+      b2c_t: 'Для дома · B2C', b2c_d: 'Владельцы частных домов · дачники · любители барбекю · семейный отдых на природе',
+      faq_eyebrow: 'FAQ', faq_h2: 'Частые вопросы',
+      contacts_eyebrow: 'Контакты', contacts_h2: 'Закажите уголь ЯРЫ сегодня',
+      contacts_p: 'Оставьте заявку по телефону или в WhatsApp — доставим на следующий день.',
+      contacts_callback_btn: 'Перезвонить',
+      contacts_pickup_label: 'Самовывоз', contacts_address: 'Алматинская обл., Енбекшиказахский р-н,<br>с. Байтерек, ул. Строителей, 28',
+      contacts_hours_label: 'Режим работы', contacts_hours: 'Ежедневно<br>08:00 — 19:00',
+      footer_tag: 'Древесный уголь · собственное производство', footer_copy: '© 2026 ЯРЫ. Честность · качество · натуральность', footer_dev: 'Разработано',
+      scroll_top_title: 'Наверх',
+      qty_label: 'Количество:', qty_confirm: 'Выбрать',
+      callback_eyebrow: 'Обратный звонок', callback_h3: 'Перезвоним в течение 15 минут',
+      callback_btn: 'Позвонить мне', callback_footnote: 'Нажимая кнопку, вы соглашаетесь на обработку данных',
+      mobcta_call: 'Позвонить', mobcta_callback: 'Перезвонить',
+      wa_float_title: 'Написать в WhatsApp',
+      cart_total_label: 'Итого', checkout_btn: 'Оформить через WhatsApp',
+      cart_empty: 'Корзина пуста.<br>Выберите фасовку в каталоге.', cart_delete_title: 'Удалить',
+      cart_item_prefix: 'Уголь',
+      checkout_hint_default: 'Минимум 20 мешков для оформления заказа',
+      checkout_hint_progress: function(n) { return 'Минимум 20 мешков для заказа — добавьте ещё ' + n; },
+      checkout_hint_ready: 'Доставка бесплатна · самовывоз доступен',
+      toast_ready: 'Можно оформлять заказ!',
+      toast_added: function(n) { return '+' + n + ' ' + pluralBag(n, 'ru') + ' добавлено'; },
+      toast_ready_sub: function(n) { return 'В корзине ' + n + ' ' + pluralBag(n, 'ru') + ' — минимум достигнут'; },
+      toast_progress_sub: function(n, left) { return 'В корзине ' + n + ' из 20. Добавьте ещё <span style="color:#C29B5B;font-weight:700;">' + left + ' ' + pluralBag(left, 'ru') + '</span>'; },
+      order_greeting: 'Здравствуйте! Хочу заказать древесный уголь ЯРЫ:\n', order_total: 'Итого: ',
+      callback_msg: function(phone) { return 'Перезвоните мне: ' + phone; },
+    },
+    kk: {
+      nav_catalog: 'Каталог', nav_advantages: 'Артықшылықтар', nav_process: 'Өндіріс', nav_delivery: 'Жеткізу', nav_faq: 'Сұрақ-жауап', nav_contacts: 'Байланыс',
+      cart_btn: 'Себет',
+      hero_eyebrow: 'Меншікті өндіріс · Алматы',
+      hero_h1: 'Ағаш көмірі<br><span style="color:#DA2D1A;">премиум</span> сапалы<br><span style="font-size:76px;color:#C29B5B;font-style:italic;">көтерме</span>',
+      hero_p: 'Қатты ағаш түрлерінен жасалған табиғи көмір. Тұрақты жылу, жоғары жылу беру және минималды күл — мейрамханалар, шашлықханалар және үй барбекюі үшін.',
+      hero_btn_catalog: 'Каталогқа өту', hero_btn_wa: 'WhatsApp-қа жазу',
+      hero_stat1: 'табиғи', hero_stat2: 'хим. қоспа', hero_stat3: 'жеткізу',
+      strip1: 'Қатты ағаш түрлері', strip2: 'Жылуды ұзақ сақтайды', strip3: 'Жанғанда атылмайды', strip4: 'Күлі аз',
+      products_eyebrow: 'Өнім каталогы', products_h2: 'Қаптаманы таңдаңыз',
+      products_min: 'Ең аз көтерме тапсырыс — <strong style="color:#1B1714;">20 қаптан</strong> бастап',
+      products_note: 'Фирмалық крафт қаптар. Бағасы қаптама үшін көрсетілген. <span style="display:inline-flex;align-items:center;gap:6px;background:#3e3e3e;color:#fff;font-weight:700;font-size:13px;padding:5px 12px;border-radius:999px;letter-spacing:.02em;">20 қаптан жеткізу — тегін</span>',
+      add_btn: 'Себетке',
+      adv_eyebrow: 'Неге ЯРЫ', adv_h2: 'От тексерген сапа',
+      adv_p: 'Біз әрбір кезеңді бақылаймыз — ағашты таңдаудан бастап фирмалық қапқа буып-түюге дейін. Делдалсыз, тек тұрақты нәтиже.',
+      adv1_t: 'Меншікті өндіріс', adv1_d: 'Толық өндіріс циклі біздің бақылауымызда.',
+      adv2_t: 'Химиялық қоспасыз', adv2_d: 'Тек табиғи ағаш, артық ештеңе жоқ.',
+      adv3_t: 'Жоғары жылу беру', adv3_d: 'Жылуды ұзақ сақтайды және жанғанда атылмайды.',
+      adv4_t: 'Ірі фракция', adv4_d: 'Ірі және орта кесек, күлі ең аз.',
+      proc_eyebrow: 'Өндіріс', proc_h2: 'Ағаштан қапқа дейін',
+      proc1_t: 'Көмірлендіру', proc1_d: 'Қатты ағаш түрлері біздің пештерде толық көмірлену циклінен өтеді.',
+      proc2_t: 'Қаптау', proc2_d: 'Дайын көмір сұрыпталып, фирмалық крафт қаптарға буып-түйіледі.',
+      proc3_t: 'Жеткізу', proc3_d: 'Делдалсыз, тікелей жөнелту — Алматы және облыс бойынша.',
+      del_eyebrow: 'Тапсырыс шарттары', del_h2: 'Жеткізу және өзі алып кету',
+      del_stat1: 'қап — жеткізу үшін ең аз тапсырыс', del_stat2: 'аймақ бойынша жеткізу құны',
+      del_stat3_num: '+1 күн', del_stat3: 'мерзімі — тапсырыстан кейінгі келесі күні',
+      del_stat4_num: 'Иә', del_stat4: 'Байтерек ауылындағы өндірістен өзі алып кету',
+      b2b_t: 'Бизнеске · B2B', b2b_d: 'Мейрамханалар · шашлықханалар · донерханалар · кафелер · дүкендер · супермаркеттер · базарлар · АЖС · сауда нүктелері',
+      b2c_t: 'Үйге · B2C', b2c_d: 'Жеке үй иелері · саяжай иелері · барбекю сүйер · табиғатта отбасылық демалыс',
+      faq_eyebrow: 'Сұрақ-жауап', faq_h2: 'Жиі қойылатын сұрақтар',
+      contacts_eyebrow: 'Байланыс', contacts_h2: 'ЯРЫ көмірін бүгін тапсырыс беріңіз',
+      contacts_p: 'Телефон немесе WhatsApp арқылы өтінім қалдырыңыз — келесі күні жеткіземіз.',
+      contacts_callback_btn: 'Қайта қоңырау шалу',
+      contacts_pickup_label: 'Өзі алып кету', contacts_address: 'Алматы обл., Еңбекшіқазақ ауданы,<br>Байтерек ауылы, Строителей көш., 28',
+      contacts_hours_label: 'Жұмыс уақыты', contacts_hours: 'Күн сайын<br>08:00 — 19:00',
+      footer_tag: 'Ағаш көмірі · меншікті өндіріс', footer_copy: '© 2026 ЯРЫ. Адалдық · сапа · табиғилық', footer_dev: 'Әзірлеген',
+      scroll_top_title: 'Жоғарыға',
+      qty_label: 'Саны:', qty_confirm: 'Таңдау',
+      callback_eyebrow: 'Кері қоңырау', callback_h3: '15 минут ішінде қайта хабарласамыз',
+      callback_btn: 'Маған қоңырау шалыңыз', callback_footnote: 'Түймені басу арқылы деректерді өңдеуге келісім бересіз',
+      mobcta_call: 'Қоңырау шалу', mobcta_callback: 'Қайта қоңырау шалу',
+      wa_float_title: 'WhatsApp-қа жазу',
+      cart_total_label: 'Барлығы', checkout_btn: 'WhatsApp арқылы рәсімдеу',
+      cart_empty: 'Себет бос.<br>Каталогтан қаптаманы таңдаңыз.', cart_delete_title: 'Жою',
+      cart_item_prefix: 'Көмір',
+      checkout_hint_default: 'Тапсырыс беру үшін ең аз 20 қап',
+      checkout_hint_progress: function(n) { return 'Тапсырыс үшін ең аз 20 қап — тағы ' + n + ' қосыңыз'; },
+      checkout_hint_ready: 'Жеткізу тегін · өзі алып кету қолжетімді',
+      toast_ready: 'Тапсырыс беруге болады!',
+      toast_added: function(n) { return '+' + n + ' ' + pluralBag(n, 'kk') + ' қосылды'; },
+      toast_ready_sub: function(n) { return 'Себетте ' + n + ' ' + pluralBag(n, 'kk') + ' — ең аз мөлшерге жетті'; },
+      toast_progress_sub: function(n, left) { return 'Себетте 20-ның ' + n + '. Тағы <span style="color:#C29B5B;font-weight:700;">' + left + ' ' + pluralBag(left, 'kk') + '</span> қосыңыз'; },
+      order_greeting: 'Сәлеметсіз бе! ЯРЫ ағаш көмірін тапсырыс бергім келеді:\n', order_total: 'Барлығы: ',
+      callback_msg: function(phone) { return 'Маған қайта хабарласыңыз: ' + phone; },
+    },
+  };
+
+  function pluralBag(n, lang) {
+    if (lang === 'kk') return 'қап';
+    const r = n % 10, r100 = n % 100;
+    if (r === 1 && r100 !== 11) return 'мешок';
+    if (r >= 2 && r <= 4 && (r100 < 10 || r100 >= 20)) return 'мешка';
+    return 'мешков';
+  }
+
+  let currentLang = localStorage.getItem('yary_lang') || 'ru';
+
+  function applyStaticI18n() {
+    document.documentElement.lang = currentLang === 'kk' ? 'kk' : 'ru';
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n');
+      if (I18N[currentLang][key] !== undefined) el.textContent = I18N[currentLang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-html');
+      if (I18N[currentLang][key] !== undefined) el.innerHTML = I18N[currentLang][key];
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-title');
+      if (I18N[currentLang][key] !== undefined) el.title = I18N[currentLang][key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      const active = btn.dataset.lang === currentLang;
+      btn.style.background = active ? '#DA2D1A' : 'none';
+      btn.style.color = active ? '#fff' : '#F2EBDD';
+    });
+  }
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('yary_lang', lang);
+    applyStaticI18n();
+    renderProducts();
+    renderFaq();
+    updateDrawer();
+  }
+
   const qty = {};   // per-product selected qty before add-to-cart
-  let cart = {};    // { id: { name, price, qty } }
+  let cart = {};    // { id: { price, qty, img } }
 
   function fmt(n) {
     return n.toLocaleString('ru-RU') + ' ₸';
@@ -692,13 +834,13 @@
       card.className = 'product-card';
       card.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#DA2D1A;background:#FBE6E2;padding:5px 10px;border-radius:999px;">${p.tag}</span>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#DA2D1A;background:#FBE6E2;padding:5px 10px;border-radius:999px;">${p.tag[currentLang]}</span>
         </div>
         <div class="card-img-box" style="background:#fff;border-radius:12px;height:200px;display:flex;align-items:center;justify-content:center;padding:12px;margin-bottom:18px;">
-          <img src="${p.img}" alt="Мешок угля ЯРЫ ${p.w} ${p.unit}" loading="lazy" style="height:100%;width:auto;object-fit:contain;">
+          <img src="${p.img}" alt="${I18N[currentLang].cart_item_prefix} ЯРЫ ${p.w} ${p.unit}" loading="lazy" style="height:100%;width:auto;object-fit:contain;">
         </div>
         <div class="card-size" style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;line-height:1;">${p.w} <span style="font-size:20px;color:#8A7E6E;">${p.unit}</span></div>
-        <div style="font-size:13px;color:#7C7062;margin:6px 0 16px;">${p.desc}</div>
+        <div style="font-size:13px;color:#7C7062;margin:6px 0 16px;">${p.desc[currentLang]}</div>
         <div class="card-price" style="font-size:24px;font-weight:800;margin-bottom:16px;">${fmt(p.price)}</div>
         <div class="card-actions" style="margin-top:auto;display:flex;align-items:center;gap:10px;">
           <div class="qty-wrap" style="display:flex;align-items:center;border:1px solid #E2D9C9;border-radius:999px;overflow:hidden;">
@@ -706,7 +848,7 @@
             <button class="qty-val-btn" id="qty-${p.id}" data-id="${p.id}" data-name="${p.w} ${p.unit}">${q}</button>
             <button class="qty-btn" data-id="${p.id}" data-d="1">+</button>
           </div>
-          <button class="add-btn" data-id="${p.id}" style="flex:1;background:#1B1714;color:#F2EBDD;border:none;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;height:42px;border-radius:999px;cursor:pointer;transition:background .2s;">В корзину</button>
+          <button class="add-btn" data-id="${p.id}" style="flex:1;background:#1B1714;color:#F2EBDD;border:none;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;height:42px;border-radius:999px;cursor:pointer;transition:background .2s;">${I18N[currentLang].add_btn}</button>
         </div>
       `;
       grid.appendChild(card);
@@ -733,12 +875,34 @@
         const p = PRODUCTS.find(x => x.id === btn.dataset.id);
         const q = qty[p.id] || 1;
         const ex = cart[p.id];
-        cart[p.id] = { name: 'Уголь ' + p.w + ' ' + p.unit, price: p.price, qty: (ex ? ex.qty : 0) + q, img: p.img };
+        cart[p.id] = { price: p.price, qty: (ex ? ex.qty : 0) + q, img: p.img };
         saveCart();
         const total = Object.values(cart).reduce((a, i) => a + i.qty, 0);
         showToast(q, total);
         updateDrawer();
       });
+    });
+  }
+
+  /* ── faq list ── */
+  function renderFaq() {
+    const list = document.getElementById('faq-list');
+    if (!list) return;
+    list.innerHTML = '';
+    FAQS.forEach(function(item) {
+      const el = document.createElement('div');
+      el.style.cssText = 'border-bottom:1px solid rgba(0,0,0,.1);';
+      el.innerHTML = `
+        <button onclick="toggleFaq(this)" style="width:100%;background:none;border:none;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;cursor:pointer;text-align:left;">
+          <span style="font-size:17px;font-weight:600;color:#1B1714;line-height:1.4;">${item.q[currentLang]}</span>
+          <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#f2ede6;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .25s;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 5l5 5 5-5" stroke="#1B1714" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" style="max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;">
+          <p style="font-size:15px;line-height:1.7;color:#5A5047;margin:0;padding-bottom:22px;">${item.a[currentLang]}</p>
+        </div>`;
+      list.appendChild(el);
     });
   }
 
@@ -754,8 +918,13 @@
     document.getElementById('drawer-overlay').style.display = 'none';
   }
 
+  function cartItemName(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    return p ? (I18N[currentLang].cart_item_prefix + ' ' + p.w + ' ' + p.unit) : I18N[currentLang].cart_item_prefix;
+  }
+
   function updateDrawer() {
-    const items = Object.keys(cart).map(id => ({ id, ...cart[id] }));
+    const items = Object.keys(cart).map(id => ({ id, name: cartItemName(id), ...cart[id] }));
     const totalNum = items.reduce((a, i) => a + i.price * i.qty, 0);
     const count = items.reduce((a, i) => a + i.qty, 0);
 
@@ -779,9 +948,9 @@
     document.getElementById('cart-total').textContent = fmt(totalNum);
 
     // checkout link
-    let orderText = 'Здравствуйте! Хочу заказать древесный уголь ЯРЫ:\n';
+    let orderText = I18N[currentLang].order_greeting;
     items.forEach(i => { orderText += '— ' + i.name + ' × ' + i.qty + '\n'; });
-    orderText += 'Итого: ' + fmt(totalNum);
+    orderText += I18N[currentLang].order_total + fmt(totalNum);
     const link = document.getElementById('checkout-link');
     const hint = document.getElementById('checkout-hint');
     const canOrder = count >= 20;
@@ -791,21 +960,21 @@
       link.style.opacity = '1';
       link.style.cursor = 'pointer';
       link.onclick = function() { setTimeout(function() { cart = {}; saveCart(); updateDrawer(); closeDrawer(); }, 300); };
-      hint.textContent = 'Доставка бесплатна · самовывоз доступен';
+      hint.textContent = I18N[currentLang].checkout_hint_ready;
     } else {
       link.href = '#';
       link.style.pointerEvents = 'none';
       link.style.opacity = '0.4';
       link.style.cursor = 'default';
       hint.textContent = count > 0
-        ? 'Минимум 20 мешков для заказа — добавьте ещё ' + (20 - count)
-        : 'Минимум 20 мешков для оформления заказа';
+        ? I18N[currentLang].checkout_hint_progress(20 - count)
+        : I18N[currentLang].checkout_hint_default;
     }
 
     // items list
     const list = document.getElementById('cart-items-list');
     if (items.length === 0) {
-      list.innerHTML = '<div style="text-align:center;color:#8A7E6E;padding:60px 20px;font-size:15px;">Корзина пуста.<br>Выберите фасовку в каталоге.</div>';
+      list.innerHTML = '<div style="text-align:center;color:#8A7E6E;padding:60px 20px;font-size:15px;">' + I18N[currentLang].cart_empty + '</div>';
       return;
     }
     list.innerHTML = '';
@@ -824,7 +993,7 @@
           <button class="cart-item-btn" data-id="${it.id}" data-d="-1">−</button>
           <span style="min-width:18px;text-align:center;font-weight:700;font-size:14px;">${it.qty}</span>
           <button class="cart-item-btn" data-id="${it.id}" data-d="1">+</button>
-          <button class="cart-del-btn" data-id="${it.id}" title="Удалить" style="background:none;border:none;color:#5A5047;cursor:pointer;padding:4px;margin-left:4px;border-radius:6px;transition:color .15s;" onmouseover="this.style.color='#DA2D1A'" onmouseout="this.style.color='#5A5047'">
+          <button class="cart-del-btn" data-id="${it.id}" title="${I18N[currentLang].cart_delete_title}" style="background:none;border:none;color:#5A5047;cursor:pointer;padding:4px;margin-left:4px;border-radius:6px;transition:color .15s;" onmouseover="this.style.color='#DA2D1A'" onmouseout="this.style.color='#5A5047'">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
           </button>
         </div>
@@ -875,12 +1044,10 @@
         <div style="width:36px;height:36px;border-radius:10px;background:${isReady ? '#1a6b3a' : '#DA2D1A'};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">${isReady ? '✓' : '🛒'}</div>
         <div>
           <div style="font-weight:700;font-size:14px;color:#F2EBDD;margin-bottom:4px;">
-            ${isReady ? 'Можно оформлять заказ!' : `+${added} ${pluralBag(added)} добавлено`}
+            ${isReady ? I18N[currentLang].toast_ready : I18N[currentLang].toast_added(added)}
           </div>
           <div style="font-size:12px;color:#8A7E6E;line-height:1.5;">
-            ${isReady
-              ? `В корзине ${total} ${pluralBag(total)} — минимум достигнут`
-              : `В корзине ${total} из 20. Добавьте ещё <span style="color:#C29B5B;font-weight:700;">${left} ${pluralBag(left)}</span>`}
+            ${isReady ? I18N[currentLang].toast_ready_sub(total) : I18N[currentLang].toast_progress_sub(total, left)}
           </div>
         </div>
       </div>`;
@@ -890,23 +1057,20 @@
     }, 3500);
   }
 
-  function pluralBag(n) {
-    const r = n % 10, r100 = n % 100;
-    if (r === 1 && r100 !== 11) return 'мешок';
-    if (r >= 2 && r <= 4 && (r100 < 10 || r100 >= 20)) return 'мешка';
-    return 'мешков';
-  }
-
-
   /* ── init ── */
   loadCart();
+  applyStaticI18n();
   renderProducts();
+  renderFaq();
   updateDrawer();
 
   document.getElementById('cart-open-btn').addEventListener('click', openDrawer);
   document.getElementById('float-cart').addEventListener('click', openDrawer);
   document.getElementById('cart-close-btn').addEventListener('click', closeDrawer);
   document.getElementById('drawer-backdrop').addEventListener('click', closeDrawer);
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { setLang(btn.dataset.lang); });
+  });
 
   /* ── scroll reveal ── */
   const revealObs = new IntersectionObserver(function(entries) {
@@ -960,7 +1124,7 @@
       setTimeout(function() { document.getElementById('callback-phone').style.borderColor = ''; }, 1500);
       return;
     }
-    var text = encodeURIComponent('Перезвоните мне: ' + phone);
+    var text = encodeURIComponent(I18N[currentLang].callback_msg(phone));
     window.open('https://wa.me/77071978009?text=' + text, '_blank');
     closeCallback();
   };
