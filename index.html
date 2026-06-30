@@ -733,7 +733,7 @@
         const p = PRODUCTS.find(x => x.id === btn.dataset.id);
         const q = qty[p.id] || 1;
         const ex = cart[p.id];
-        cart[p.id] = { name: 'Уголь ' + p.w + ' ' + p.unit, price: p.price, qty: (ex ? ex.qty : 0) + q };
+        cart[p.id] = { name: 'Уголь ' + p.w + ' ' + p.unit, price: p.price, qty: (ex ? ex.qty : 0) + q, img: p.img };
         saveCart();
         const total = Object.values(cart).reduce((a, i) => a + i.qty, 0);
         showToast(q, total);
@@ -814,7 +814,7 @@
       row.style.cssText = 'display:flex;gap:14px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);align-items:center;';
       row.innerHTML = `
         <div style="width:54px;height:54px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:6px;flex-shrink:0;">
-          <img src="assets/product.jpg" alt="" style="height:100%;object-fit:contain;">
+          <img src="${it.img || 'assets/product.jpg'}" alt="${it.name}" style="height:100%;object-fit:contain;">
         </div>
         <div style="flex:1;min-width:0;">
           <div style="font-weight:700;font-size:15px;">${it.name}</div>
