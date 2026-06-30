@@ -253,6 +253,20 @@
   /* callback modal */
   .callback-overlay { display:none;position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.65);align-items:center;justify-content:center; }
   .callback-overlay.open { display:flex;animation:fadeIn .2s ease; }
+  #qty-picker-overlay { display:none;position:fixed;inset:0;z-index:75;background:rgba(0,0,0,.6);align-items:flex-end;justify-content:center; }
+  #qty-picker-overlay.open { display:flex;animation:fadeIn .18s ease; }
+  #qty-picker-sheet { background:#17130F;border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:20px 0 40px;border-top:1px solid rgba(255,255,255,.1); }
+  .picker-title { text-align:center;font-size:13px;color:#8A7E6E;padding:0 24px 16px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:4px; }
+  .picker-title strong { color:#F2EBDD; }
+  .picker-viewport { position:relative;height:260px;overflow:hidden;cursor:grab; }
+  .picker-viewport:active { cursor:grabbing; }
+  .picker-highlight { position:absolute;top:50%;left:24px;right:24px;height:52px;transform:translateY(-50%);background:rgba(218,45,26,.1);border-radius:12px;border:1px solid rgba(218,45,26,.35);pointer-events:none;z-index:2; }
+  .picker-fade-top { position:absolute;top:0;left:0;right:0;height:104px;background:linear-gradient(to bottom,#17130F 20%,transparent);pointer-events:none;z-index:3; }
+  .picker-fade-bot { position:absolute;bottom:0;left:0;right:0;height:104px;background:linear-gradient(to top,#17130F 20%,transparent);pointer-events:none;z-index:3; }
+  #picker-drum { position:relative;will-change:transform;user-select:none; }
+  .picker-item { height:52px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#F2EBDD; }
+  .picker-confirm { display:block;margin:16px 24px 0;width:calc(100% - 48px);background:#DA2D1A;color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:15px;border-radius:999px;border:none;cursor:pointer;touch-action:manipulation; }
+  .qty-val-btn { background:none;border:none;min-width:32px;text-align:center;font-weight:700;font-size:15px;cursor:pointer;color:#1B1714;padding:4px 6px;touch-action:manipulation;border-radius:6px; }
   .callback-modal { background:#17130F;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px 36px;width:100%;max-width:420px;margin:20px;position:relative; }
   .callback-modal input { width:100%;box-sizing:border-box;background:#221D18;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#F2EBDD;font-family:'Manrope',sans-serif;font-size:16px;padding:14px 20px;outline:none;transition:border-color .2s; }
   .callback-modal input:focus { border-color:#DA2D1A; }
@@ -577,6 +591,20 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
+<!-- qty drum picker -->
+<div id="qty-picker-overlay" onclick="if(event.target===this)closeQtyPicker()">
+  <div id="qty-picker-sheet">
+    <div class="picker-title">Количество: <strong id="picker-product-name"></strong></div>
+    <div class="picker-viewport" id="picker-viewport">
+      <div class="picker-highlight"></div>
+      <div class="picker-fade-top"></div>
+      <div class="picker-fade-bot"></div>
+      <div id="picker-drum"></div>
+    </div>
+    <button class="picker-confirm" onclick="confirmQtyPicker()">Выбрать</button>
+  </div>
+</div>
+
 <!-- callback popup -->
 <div id="callback-overlay" class="callback-overlay" onclick="if(event.target===this)closeCallback()">
   <div class="callback-modal">
@@ -673,13 +701,20 @@
         <div class="card-actions" style="margin-top:auto;display:flex;align-items:center;gap:10px;">
           <div class="qty-wrap" style="display:flex;align-items:center;border:1px solid #E2D9C9;border-radius:999px;overflow:hidden;">
             <button class="qty-btn" data-id="${p.id}" data-d="-1">−</button>
-            <span id="qty-${p.id}" style="min-width:22px;text-align:center;font-weight:700;font-size:15px;">${q}</span>
+            <button class="qty-val-btn" id="qty-${p.id}" data-id="${p.id}" data-name="${p.w} ${p.unit}">${q}</button>
             <button class="qty-btn" data-id="${p.id}" data-d="1">+</button>
           </div>
           <button class="add-btn" data-id="${p.id}" style="flex:1;background:#1B1714;color:#F2EBDD;border:none;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;height:42px;border-radius:999px;cursor:pointer;transition:background .2s;">В корзину</button>
         </div>
       `;
       grid.appendChild(card);
+    });
+
+    grid.querySelectorAll('.qty-val-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        openQtyPicker(id, btn.dataset.name, qty[id] || 1);
+      });
     });
 
     grid.querySelectorAll('.qty-btn').forEach(btn => {
@@ -937,7 +972,114 @@
     window.open('https://wa.me/77071978009?text=' + text, '_blank');
     closeCallback();
   };
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeCallback(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeCallback(); closeQtyPicker(); } });
+
+  /* ── qty drum picker ── */
+  (function() {
+    var ITEM_H = 52, VISIBLE = 5, MAX = 99;
+    var pickerProductId = null, pickerProductName = '';
+    var currentY = 0, dragStartY = 0, dragStartCurrentY = 0, dragging = false, velY = 0, lastTY = 0, lastT = 0;
+
+    function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+    function idxForY(y) { return Math.round(-y / ITEM_H); }
+    function yForIdx(i) { return -i * ITEM_H; }
+    function getSelectedQty() { return clamp(idxForY(currentY), 0, MAX - 1) + 1; }
+
+    function applyY(y, animate) {
+      currentY = clamp(y, yForIdx(MAX - 1), 0);
+      var drum = document.getElementById('picker-drum');
+      drum.style.transition = animate ? 'transform .32s cubic-bezier(.22,.61,.36,1)' : 'none';
+      drum.style.transform = 'translateY(' + (currentY + 2 * ITEM_H) + 'px)';
+    }
+
+    function snap(animate) {
+      applyY(yForIdx(clamp(idxForY(currentY), 0, MAX - 1)), animate);
+    }
+
+    window.openQtyPicker = function(id, name, currentQty) {
+      pickerProductId = id;
+      pickerProductName = name;
+      document.getElementById('picker-product-name').textContent = name;
+      var drum = document.getElementById('picker-drum');
+      drum.innerHTML = '';
+      for (var i = 1; i <= MAX; i++) {
+        var el = document.createElement('div');
+        el.className = 'picker-item';
+        el.textContent = i;
+        drum.appendChild(el);
+      }
+      applyY(yForIdx((currentQty || 1) - 1), false);
+      document.getElementById('qty-picker-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeQtyPicker = function() {
+      document.getElementById('qty-picker-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    window.confirmQtyPicker = function() {
+      var q = getSelectedQty();
+      if (pickerProductId !== null) {
+        qty[pickerProductId] = q;
+        var el = document.getElementById('qty-' + pickerProductId);
+        if (el) el.textContent = q;
+      }
+      closeQtyPicker();
+    };
+
+    var vp = document.getElementById('picker-viewport');
+    vp.addEventListener('touchstart', function(e) {
+      dragging = true;
+      dragStartY = e.touches[0].clientY;
+      dragStartCurrentY = currentY;
+      velY = 0; lastTY = dragStartY; lastT = Date.now();
+      var drum = document.getElementById('picker-drum');
+      drum.style.transition = 'none';
+      e.preventDefault();
+    }, { passive: false });
+
+    vp.addEventListener('touchmove', function(e) {
+      if (!dragging) return;
+      var dy = e.touches[0].clientY - dragStartY;
+      var now = Date.now();
+      velY = (e.touches[0].clientY - lastTY) / (now - lastT + 1) * 16;
+      lastTY = e.touches[0].clientY; lastT = now;
+      applyY(dragStartCurrentY + dy, false);
+      e.preventDefault();
+    }, { passive: false });
+
+    vp.addEventListener('touchend', function() {
+      if (!dragging) return;
+      dragging = false;
+      // momentum
+      var momentum = clamp(velY * 6, -ITEM_H * 4, ITEM_H * 4);
+      applyY(currentY + momentum, false);
+      snap(true);
+    });
+
+    // mouse support for desktop testing
+    vp.addEventListener('mousedown', function(e) {
+      dragging = true;
+      dragStartY = e.clientY;
+      dragStartCurrentY = currentY;
+      velY = 0; lastTY = e.clientY; lastT = Date.now();
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (!dragging) return;
+      var now = Date.now();
+      velY = (e.clientY - lastTY) / (now - lastT + 1) * 16;
+      lastTY = e.clientY; lastT = now;
+      applyY(dragStartCurrentY + (e.clientY - dragStartY), false);
+    });
+    document.addEventListener('mouseup', function() {
+      if (!dragging) return;
+      dragging = false;
+      var momentum = clamp(velY * 6, -ITEM_H * 4, ITEM_H * 4);
+      applyY(currentY + momentum, false);
+      snap(true);
+    });
+  })();
 
   /* ── scroll to top ── */
   (function() {
